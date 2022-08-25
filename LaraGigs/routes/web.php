@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,8 +30,14 @@ Route::get('/who',function()
 Route::get('/posts{id}', function ($id)
 {
     // NEW TO ME - Dump,Die,Debug()
-    ddd($id);
-    dd($id); 
+    // ddd($id);
+    // dd($id); 
 
     return response('Post' . $id);
 })->where('id','[0-9]+');
+
+//Getting query string value in the url using Request
+Route::get('/search', function(Request $request)
+{
+    return response($request->name .' '. $request->lastName);
+});
