@@ -28,5 +28,9 @@ Route::get('/who',function()
 // where() is an constraint, the response will only happen if it is met
 Route::get('/posts{id}', function ($id)
 {
+    // NEW TO ME - Dump,Die,Debug()
+    ddd($id);
+    dd($id); 
+
     return response('Post' . $id);
 })->where('id','[0-9]+');
